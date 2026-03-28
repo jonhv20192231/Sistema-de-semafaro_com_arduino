@@ -1,0 +1,61 @@
+#include "inc.h"
+
+int somador = 10;
+
+const int Botao_1 = 5;
+const int Botao_2 = 6;
+
+int estadoBotao_1 = 0;
+int estadoBotao_2 = 0;
+
+const int VERDE = 2;
+const int AMARELO = 3;
+const int VERMELHO = 4;
+
+void setup(void){
+
+   pinMode(VERDE, OUTPUT);
+   pinMode(AMARELO, OUTPUT);
+   pinMode(VERMELHO, OUTPUT);
+
+   pinMode(Botao_1, INPUT);
+   pinMode(Botao_2, INPUT);
+}
+void loop(void){
+
+  estadoBotao_1 = digitalRead(Botao_1);
+  estadoBotao_2 = digitalRead(Botao_2);
+
+  if(estadoBotao_1 == HIGH){
+    digitalWrite(VERMELHO, HIGH);
+    delay(200);
+    digitalWrite(VERDE, HIGH);
+    delay(300);
+    digitalWrite(AMARELO, HIGH);
+    delay(500);
+  } else {
+    digitalWrite(VERMELHO, LOW);
+    
+    digitalWrite(VERDE, LOW);
+    
+    digitalWrite(AMARELO, LOW);
+    
+  
+  }
+  if(estadoBotao_2 == HIGH){
+    digitalWrite(VERDE, HIGH);
+    delay(200);
+    digitalWrite(VERMELHO, HIGH);
+    delay(300);
+    digitalWrite(AMARELO, HIGH);
+    delay(500);
+  } else {
+    digitalWrite(VERDE, LOW);
+    
+    digitalWrite(VERMELHO, LOW);
+    
+    digitalWrite(AMARELO, LOW);
+    
+  }
+  
+}
